@@ -42,14 +42,7 @@ public class StringTest {
     @Test
     @DisplayName("StringIndexOutOfBoundsException Test")
     void charAtWithException(){
-        String given = "abc";
-
-        try{
-            given.charAt(3);
-            fail("Test Fail");
-        }catch (StringIndexOutOfBoundsException e){
-
-        }
+        Assertions.assertThrows(StringIndexOutOfBoundsException.class, ()->"abc".charAt(3) );
     }
 
 
