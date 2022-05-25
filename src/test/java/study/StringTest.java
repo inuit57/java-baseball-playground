@@ -1,11 +1,14 @@
 package study;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 public class StringTest {
+
     @Test
     void replace() {
         String actual = "abc".replace("b", "d");
@@ -26,6 +29,27 @@ public class StringTest {
         String given = "(1,2)";
         String result = given.substring(1, given.length()-1);
         assertThat(result).isEqualTo("1,2");
+    }
+
+    @Test
+    void charAt(){
+        String given = "abc";
+        assertThat(given.charAt(0)).isEqualTo('a');
+        assertThat(given.charAt(1)).isEqualTo('b');
+        assertThat(given.charAt(2)).isEqualTo('c');
+    }
+
+    @Test
+    @DisplayName("StringIndexOutOfBoundsException Test")
+    void charAtWithException(){
+        String given = "abc";
+
+        try{
+            given.charAt(3);
+            fail("Test Fail");
+        }catch (StringIndexOutOfBoundsException e){
+
+        }
     }
 
 
