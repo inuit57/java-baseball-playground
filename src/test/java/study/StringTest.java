@@ -10,4 +10,15 @@ public class StringTest {
         String actual = "abc".replace("b", "d");
         assertThat(actual).isEqualTo("adc");
     }
+
+    @Test
+    void split(){
+        String[] splitTwo = "1,2".split(",");
+        assertThat(splitTwo).contains("1","2");
+
+        String[] splitOne = "1".split(",");
+        assertThat(splitOne).containsExactly("1");
+    }
+
+
 }
