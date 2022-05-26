@@ -35,7 +35,7 @@ public class BaseBall {
     }
 
     public String judge(String input){
-        if(this.answer.equals(input)){ return "3S"; }
+        if(this.answer.equals(input)){ return "3S0B"; }
 
         int strike = 0 ;
         int ball = 0;

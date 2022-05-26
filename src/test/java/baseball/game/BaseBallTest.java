@@ -44,7 +44,7 @@ class BaseBallTest {
         baseBall.setAnswer("356");
 
         String win = baseBall.judge("356");
-        assertThat(win).isEqualTo("3S");
+        assertThat(win).isEqualTo("3S0B");
 
         String twoBall = baseBall.judge("634");
         assertThat(twoBall).isEqualTo("0S2B");
