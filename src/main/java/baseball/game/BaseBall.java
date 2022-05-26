@@ -10,7 +10,7 @@ public class BaseBall {
 
 
     public BaseBall(){
-        numberGenerator();
+        this.answer = createNumber(3);
     }
 
     public int numberGenerator() {
