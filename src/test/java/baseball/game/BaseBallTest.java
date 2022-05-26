@@ -4,12 +4,13 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BaseBallTest {
 
-    private BaseBall baseBall = new BaseBall();
+    private final BaseBall baseBall = new BaseBall();
 
     @Test
     @DisplayName("숫자생성테스트:0~9")
@@ -36,6 +37,26 @@ class BaseBallTest {
                 assertThat(number.charAt(i)).isNotEqualTo(number.charAt(j));
             }
         }
+    }
+
+    @Test
+    void judgeTest(){
+        baseBall.setAnswer("356");
+
+        String win = baseBall.judge("356");
+        assertThat(win).isEqualTo("3S");
+
+        String twoBall = baseBall.judge("634");
+        assertThat(twoBall).isEqualTo("0S2B");
+
+        String threeBall = baseBall.judge("563");
+        assertThat(threeBall).isEqualTo("0S3B");
+
+        String S12B = baseBall.judge("365");
+        assertThat(S12B).isEqualTo("1S2B");
+
+        String twoStrike = baseBall.judge("354");
+        assertThat(twoStrike).isEqualTo("2S0B");
     }
 
 }
