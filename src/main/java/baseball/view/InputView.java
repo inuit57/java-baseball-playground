@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class InputView {
 
-    private Scanner scanner = new Scanner(System.in);
-    private int maxLen = 3;
+    private final Scanner scanner = new Scanner(System.in);
+    private final int maxLen = 3;
 
     /**
      필요한 기능 정리
@@ -22,6 +22,13 @@ public class InputView {
         if(inputCheck(input)) return input;
         System.out.println("잘못된 값을 입력하셨습니다. 입력값 : " + input);
         return null ;
+    }
+
+    public boolean inputNewGame(){
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        int input = scanner.nextInt();
+
+        return input == 1;
     }
 
     protected boolean inputCheck(String input) {

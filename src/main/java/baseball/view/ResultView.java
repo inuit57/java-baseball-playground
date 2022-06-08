@@ -17,18 +17,11 @@ public class ResultView {
 
      */
 
-    public void printResult(String result){
+    public boolean printResult(String result){
         String viewText = "";
         if(result == null || result.isEmpty()){
-            return;
+            return true;
         }
-
-        if("3S0B".equals(result)){
-            //게임 승리
-            System.out.println("승리하셨습니다.");
-            return;
-        }
-
         int strike = result.charAt(0) - '0';
         if( strike > 0){
             viewText += (strike+"스트라이크");
@@ -44,5 +37,11 @@ public class ResultView {
         }
 
         System.out.println(viewText);
+        if("3S0B".equals(result)){
+            //게임 승리
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료.");
+            return false;
+        }
+        return true;
     }
 }

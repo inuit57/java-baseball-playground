@@ -1,5 +1,7 @@
 package baseball.game;
 
+import baseball.view.InputView;
+import baseball.view.ResultView;
 import lombok.Data;
 
 import java.util.Random;
@@ -7,10 +9,30 @@ import java.util.Random;
 @Data
 public class BaseBall {
     private String answer ;
-
+    private InputView inputView;
+    private ResultView resultView;
 
     public BaseBall(){
         this.answer = createNumber(3);
+        this.inputView = new InputView();
+        this.resultView = new ResultView();
+    }
+
+    public void startGame(){
+        //System.out.println("answer : " + this.answer);
+        while (checkResult()){
+            this.answer = createNumber(3);
+            //System.out.println("answer : " + this.answer);
+        }
+    }
+
+    private boolean checkResult(){
+        boolean flag = true;
+        while(flag){
+            String result =  judge(inputView.inputNumber());
+            flag = resultView.printResult(result);
+        }
+        return inputView.inputNewGame();
     }
 
     public int numberGenerator() {
