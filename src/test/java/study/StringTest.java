@@ -18,21 +18,6 @@ public class StringTest {
         assertThat(actual).isEqualTo("adc");
     }
 
-    @Test
-    void generateNumbers(){
-        List<Integer> collect = new Random().ints(1, 10)
-                .distinct()
-                .limit(3)
-                .boxed()
-                .sorted()
-                .collect(Collectors.toList());
-
-        List<BNumber> numberList = new ArrayList<>();
-        for(int i =0 ; i< 3; i++){
-            numberList.add(new BNumber(i,collect.get(i)));
-        }
-        System.out.println(collect);
-    }
 
     @Test
     void ballTest(){
