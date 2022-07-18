@@ -42,4 +42,26 @@ public class StringTest {
 
         System.out.println(baseBall.getBNumbers());
     }
+
+    @Test
+    void calculateTest(){
+        BaseBall baseBall =  new BaseBall();
+        BaseBall baseBall2 =  new BaseBall();
+
+        List<BNumber> list1 = new ArrayList<>();
+        List<BNumber> list2 = new ArrayList<>();
+
+        list1.add(new BNumber(0,1));
+        list1.add(new BNumber(1,3));
+        list1.add(new BNumber(2,4));
+
+        list2.add(new BNumber(0,2));
+        list2.add(new BNumber(1,4));
+        list2.add(new BNumber(2,3));
+
+        baseBall.setBNumbers(list1);
+        baseBall2.setBNumbers(list2);
+
+        System.out.println(baseBall.calculate(baseBall2));
+    }
 }
